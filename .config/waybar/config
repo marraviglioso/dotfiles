@@ -1,0 +1,58 @@
+{
+    "position": "bottom", 
+    "height": 30,
+    "modules-center": ["sway/workspaces", "network", "pulseaudio", "custom/weather", "clock"],
+    // Modules configuration
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}",
+	 	"persistent_workspaces": {
+	 		"1": [],
+	 		"2": [],
+	 		"3": [],
+	 		"4": [],
+	 		"5": [],
+	},
+         	"format-icons": {
+             		"1": "1",
+             		"2": "2",
+             		"3": "3",
+             		"4": "4",
+             		"5": "5",
+         }
+     },
+	"clock": {
+		"format": " {:%H:%M} ",
+        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><large>{calendar}</large></tt>",
+	},
+	"network": {
+        	"format-wifi": " {essid}",
+        	"format-ethernet": "  {ipaddr}/{cidr}",
+        	"format-linked": "{ifname} (No IP) ",
+        	"format-disconnected": " Disconnected",
+		"tooltip-format-ethernet": "Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
+	},
+	 "custom/weather": {
+        "format": "{}",
+        //"format-alt": "{alt}: {}",
+        //"format-alt-click": "click-left",
+        "interval": 300,
+        "return-type": "json",
+        "exec": "curl -s 'https://wttr.in/Pisa?format=1' |jq --unbuffered --compact-output -M -R '{text:.}'",
+    },
+	"pulseaudio": {
+		"on-click": "pactl set-sink-mute 45 toggle",
+		"format": "   {volume}%",
+        	"format-muted": "  Muted",
+        	"format-icons": {
+            	"headphone": "",
+            	"hands-free": "",
+            	"headset": "",
+            	"phone": "",
+            	"portable": "",
+            	"car": "",
+            	"default": ["", "", ""]
+	},
+    }
+}
