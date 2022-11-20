@@ -1,0 +1,86 @@
+configuration {
+	modi:				"drun";
+	font:				"Rubik Bold 10";
+	display-drun: 			"";
+	sidebar-mode: 			false;
+	hover-select:			true;
+	me-select-entry:		"";
+	me-accept-entry:		[MousePrimary];
+}
+
+@theme "/dev/null"
+
+* {
+	bg:				#FFF8EA;
+	fg:				#0E0504;
+	tnb:				#88807d;
+	window-bg:			#282828;
+
+	background-color:		@fg;
+	text-color:			@tnb;
+}
+
+window {
+	transparency:                   "real";
+	width:			    	20%;
+	y-offset:                       10px;
+	padding: 			10px;
+	location: 			center;
+	border-radius:		25px;
+}
+
+prompt { enabled: false; }
+
+entry {
+	placeholder:			"Applications";
+	expand:                         true;
+	padding:			25px 0% 20px 2.5%;
+	background-color:               @bg;
+        placeholder-color:              @fg;
+	text-color:			@fg;
+	border-color:			@fg;
+	border-radius:			25px;
+}
+
+inputbar {
+	children: 			[ prompt, entry ];
+	background-color:               @bg;
+	text-color:                     @fg;
+	expand:                         false;
+	border-radius:                  25px;
+	padding:                        8px;
+}
+
+listview {
+	columns:                        1;
+	lines:	                        8;
+	cycle:                          false;
+	dynamic:                        true;
+	layout:                         vertical;
+}
+
+mainbox {
+	children:                       [ inputbar, listview ];
+	spacing:                       	2%;
+	padding:                        2% 1% 2% 1%;
+}
+
+element {
+	orientation:                    vertical;
+	border-radius:                  0%;
+	padding:                        1.5% 0% 1.5% 0%;
+}
+
+element-text {
+	expand:                         true;
+	vertical-align:                 0.5;
+	margin:                         0.5% 3% 0% 3%;
+	background-color:               inherit;
+        text-color:                     inherit;
+}
+
+element selected {
+	background-color:               @tnb;
+	text-color:                     @fg;
+	border-radius:                  25px;
+}
